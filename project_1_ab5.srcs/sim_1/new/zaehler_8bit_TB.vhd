@@ -38,50 +38,109 @@ end zaehler_8bit_TB;
 architecture Behavioral of zaehler_8bit_TB is
 component
 zaehler_8bit
---port(CLK,NOTRESET,UPnotDown,CLK_E : in std_logic;
---    O:out std_logic_vector(7 downto 0)
---);
-
-port( CLK : in std_logic;
-O : out std_logic_vector(7 downto 0));
+port( CLK, NOTRESET, UPnotDOWN, CLK_E : in std_logic;
+        O : out std_logic_vector(7 downto 0));
 end component;
 
     --inputs
     signal CLK_TB : std_logic := '0';
---    signal UPnotDown_TB : std_logic := '0';
---    signal NOTRESET_TB : std_logic := '0';
---    signal CLK_E_TB : std_logic := '0';
+    signal NOTRESET_TB : std_logic := '0';
+    signal UPnotDOWN_TB : std_logic := '0';
+    signal CLK_E_TB : std_logic := '0';
+
     
     --output
-    signal O_TB : std_logic_vector(7 downto 0) := "00000000";
+    signal O_TB : std_logic_vector(7 downto 0);
+    
 begin
+
 --uut: unit under test instance
 uut:zaehler_8bit port map(
---CLK => CLK_TB,
---UPnotDown =>UPnotDown_TB,
---NOTRESET=>NOTRESET_TB,
---CLK_E => CLK_E_TB);
-CLK => CLK_TB);
+CLK => CLK_TB,
+NOTRESET => NOTRESET_TB,
+UPnotDOWN => UPnotDOWN_TB,
+CLK_E => CLK_E_TB,
+O=> O_TB
+);
+
 --stimulus
 stimproc:process
 begin
---NOTRESET_TB<='1';
---CLK_E_TB<='1';
---UPnotDown_TB<='1';
+    CLK_E_TB <= '1';
+    NOTRESET_TB <= '1';
+    UPnotDOWN_TB <= '1';--hochzählen
+    
+    
+    CLK_TB <= '1';      -- 1
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_TB <= '1';      -- 2
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_TB <= '1';      -- 3
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_TB <= '1';      -- 4
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    UPnotDOWN_TB <= '0'; --runterzählen
+    
+    CLK_TB <= '1';      -- 3
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_TB <= '1';      -- 2
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    NOTRESET_TB <= '0'; --reset
+    
+    
+    CLK_TB <= '1';      -- 0
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    NOTRESET_TB <= '1'; -- kein reset
+    UPnotDOWN_TB <= '1';--hochzählen
+    
+    CLK_TB <= '1';      -- 1
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_TB <= '1';      -- 2
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_E_TB <= '0';   --Clock Enable aus
+    
+    CLK_TB <= '1';      -- 2
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    CLK_TB <= '1';      -- 2
+    wait for 10 ns;
+    CLK_TB <= '0';
+    wait for 10 ns;
+    
+    
+    
+    
+    wait;
 
-CLK_TB <='1';
-wait for 100 ns;
-CLK_TB <='0';
-wait for 100 ns;
-CLK_TB <='1';
-wait for 100 ns;
-CLK_TB <='0';
-wait for 100 ns;
-CLK_TB <='1';
-wait for 100 ns;
-CLK_TB <='1';
-wait for 100 ns;
-wait;
 
 
 end process;

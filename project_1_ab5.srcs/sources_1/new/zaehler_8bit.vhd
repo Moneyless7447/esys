@@ -33,34 +33,35 @@ use IEEE.std_logic_unsigned.all;
 --use UNISIM.VComponents.all;
 
 entity zaehler_8bit is
---  Port ( );
---port(CLK,NOTRESET,UPnotDown,CLK_E : in std_logic;
---    O:out std_logic_vector(7 downto 0)
---);
-port( CLK : in std_logic;
-O : out std_logic_vector(7 downto 0));
+
+port( CLK, NOTRESET, UPnotDOWN, CLK_E : in std_logic;
+        O : out std_logic_vector(7 downto 0));
 end zaehler_8bit;
 
 architecture Behavioral of zaehler_8bit is
-signal counter : std_logic_vector(7 downto 0);--:="00000000";
+signal B : std_logic_vector(7 downto 0):=(others=>'0');
 begin
---    process(CLK,NOTRESET)
     process(CLK)
-    --variable counter : std_logic_vector(7 downto 0):="00000000";
+--    variable B : std_logic_vecor(7 downto 0):=(others=>'0');
     begin   
-        --if NOTRESET='0' then -- wenn nicht nicht reset -> wenn reset
-        --    counter := "00000000";
-        --else
-            --if CLK='1' and CLK'event and CLK_E='1'then
-            if CLK='1' and CLK'event then
-               -- if UPnotDown ='1' then
-                 counter<= counter +1;-- hochzählen
-                --else
-                 -- counter:= counter -1;-- runter zählen
-               -- end if;
+        if NOTRESET = '0' then
+            B<="00000000";--signal
+--            B:="00000000";--variable
+        
+        else
+            if rising_edge(CLK) and CLK_E='1' then
+                if UPnotDOWN ='1' then
+                    B<=B+1;--Signal
+--                    B:=B+1;--variable
+                else
+                    B<=B-1;-- Signal
+--                    B:=B-1;--variable
+                end if;
             end if;
-        --end if;
---        O<=counter;
+        end if;
+        O<=B; --variable
+--        O<=B; --Signal um 1 verschoben
     end process;
-    O<=counter;
+    
+--    O<=B; --signal
 end Behavioral;
