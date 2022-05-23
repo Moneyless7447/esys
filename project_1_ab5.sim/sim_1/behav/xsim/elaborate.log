@@ -1,6 +1,6 @@
 Vivado Simulator 2018.3
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c1b4e52dd16b4e729b8e4a20132931b5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot zaehler_8bit_TB_behav xil_defaultlib.zaehler_8bit_TB -log elaborate.log 
+Running: C:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto c1b4e52dd16b4e729b8e4a20132931b5 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot endlicherAutomat_TB_behav xil_defaultlib.endlicherAutomat_TB -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -10,8 +10,6 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.zaehler_8bit [zaehler_8bit_default]
-Compiling architecture behavioral of entity xil_defaultlib.zaehler_8bit_tb
-Built simulation snapshot zaehler_8bit_TB_behav
+Compiling architecture behavioral of entity xil_defaultlib.endlicherAutomat [endlicherautomat_default]
+Compiling architecture behavioral of entity xil_defaultlib.endlicherautomat_tb
+Built simulation snapshot endlicherAutomat_TB_behav

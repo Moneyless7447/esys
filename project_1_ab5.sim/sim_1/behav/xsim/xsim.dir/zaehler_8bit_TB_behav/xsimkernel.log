@@ -2,3 +2,6 @@ Running: xsim.dir/zaehler_8bit_TB_behav/xsimk.exe -simmode gui -wdb zaehler_8bit
 Design successfully loaded
 Design Loading Memory Usage: 6340 KB (Peak: 6340 KB)
 Design Loading CPU Usage: 62 ms
+Simulation completed
+Simulation Memory Usage: 7036 KB (Peak: 7036 KB)
+Simulation CPU Usage: 78 ms
