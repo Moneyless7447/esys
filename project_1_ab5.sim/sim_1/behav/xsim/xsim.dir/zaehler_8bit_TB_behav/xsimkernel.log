@@ -1,7 +1,4 @@
-Running: xsim.dir/zaehler_8bit_TB_behav/xsimk.exe -simmode gui -wdb zaehler_8bit_TB_behav.wdb -simrunnum 0 -socket 49397
+Running: xsim.dir/zaehler_8bit_TB_behav/xsimk.exe -simmode gui -wdb zaehler_8bit_TB_behav.wdb -simrunnum 0 -socket 65240
 Design successfully loaded
-Design Loading Memory Usage: 5852 KB (Peak: 5852 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 6536 KB (Peak: 6536 KB)
-Simulation CPU Usage: 61 ms
+Design Loading Memory Usage: 6340 KB (Peak: 6340 KB)
+Design Loading CPU Usage: 62 ms

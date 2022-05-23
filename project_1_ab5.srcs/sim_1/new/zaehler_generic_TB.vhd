@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 20.05.2022 09:48:02
+-- Create Date: 23.05.2022 15:42:54
 -- Design Name: 
--- Module Name: zaehler_8bit_TB - Behavioral
+-- Module Name: zaehler_generic_TB - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,15 +31,16 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity zaehler_8bit_TB is
+entity zaehler_generic_TB is
 --  Port ( );
-end zaehler_8bit_TB;
+end zaehler_generic_TB;
 
-architecture Behavioral of zaehler_8bit_TB is
+architecture Behavioral of zaehler_generic_TB is
 component
-zaehler_8bit
+zaehler_generic
+generic(BITS : natural := 4);
 port( CLK, NOTRESET, UPnotDOWN, CLK_E : in std_logic;
-        O : out std_logic_vector(7 downto 0));
+        O : out std_logic_vector(BITS-1 downto 0));
 end component;
 
     --inputs
@@ -50,19 +51,19 @@ end component;
 
     
     --output
-    signal O_TB : std_logic_vector(7 downto 0);
-    
+    signal O_TB : std_logic_vector(3 downto 0);
+
 begin
 
---uut: unit under test instance
-uut:zaehler_8bit port map(
-CLK => CLK_TB,
-NOTRESET => NOTRESET_TB,
-UPnotDOWN => UPnotDOWN_TB,
-CLK_E => CLK_E_TB,
-O=> O_TB
-);
-
+    --uut: unit under test instance
+    uut:zaehler_generic generic map (BITS => 4) port map(
+    CLK => CLK_TB,
+    NOTRESET => NOTRESET_TB,
+    UPnotDOWN => UPnotDOWN_TB,
+    CLK_E => CLK_E_TB,
+    O=> O_TB
+    );
+    
     --stimulus
 stimproc:process
 begin
@@ -159,7 +160,7 @@ begin
     CLK_TB <= '0';
     wait for 10 ns;
     
-    CLK_TB <= '1';      -- ff bei 8 bit
+    CLK_TB <= '1';      -- f bei 4 bit
     wait for 10 ns;
     CLK_TB <= '0';
     wait for 10 ns;
@@ -174,3 +175,4 @@ begin
 end process;
 
 end Behavioral;
+
