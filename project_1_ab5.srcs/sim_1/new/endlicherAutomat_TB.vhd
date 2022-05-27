@@ -38,7 +38,7 @@ end endlicherAutomat_TB;
 architecture Behavioral of endlicherAutomat_TB is
     component endlicherAutomat
         port(
-        CLK, SD, NOTRESET, ENABLE : in std_logic;
+        CLK, SD, NOTRESET, EN : in std_logic;
         UPnotDOWN : out std_logic
         );
     end component;
@@ -48,7 +48,7 @@ architecture Behavioral of endlicherAutomat_TB is
     signal CLK_TB : std_logic := '0';
     signal SD_TB : std_logic := '0';
     signal NOTRESET_TB : std_logic := '0';
-    signal ENABLE_TB : std_logic := '0';
+    signal EN_TB : std_logic := '0';
 
     
     --output
@@ -57,13 +57,13 @@ architecture Behavioral of endlicherAutomat_TB is
 
 begin
     --uut: unit under test instance
-    uut:endlicherAutomat port map( CLK => CLK_TB, SD => SD_TB, NOTRESET => NOTRESET_TB, ENABLE => ENABLE_TB,UPnotDOWN=>UPnotDOWN_TB);
+    uut:endlicherAutomat port map( CLK => CLK_TB, SD => SD_TB, NOTRESET => NOTRESET_TB, EN => EN_TB,UPnotDOWN=>UPnotDOWN_TB);
     
     --stimulus
     stimulus:process
         begin
         
-        ENABLE_TB <= '1';
+        EN_TB <= '1';
         NOTRESET_TB <= '1';
         
         CLK_TB <= '0';      

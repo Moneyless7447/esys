@@ -34,7 +34,7 @@ use IEEE.std_logic_unsigned.all;
 
 entity zaehler_8bit is
 
-port( CLK, NOTRESET, UPnotDOWN, CLK_E : in std_logic;
+port( CLK, NOTRESET, UPnotDOWN, EN : in std_logic;
         O : out std_logic_vector(7 downto 0));
 end zaehler_8bit;
 
@@ -49,7 +49,7 @@ begin
 --            B:="00000000";--variable
         
         else
-            if rising_edge(CLK) and CLK_E='1' then
+            if rising_edge(CLK) and EN='1' then
                 if UPnotDOWN ='1' then
                     B<=B+1;--Signal
 --                    B:=B+1;--variable

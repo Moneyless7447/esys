@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue May 24 08:35:20 2022
+# Process ID: 18404
+# Current directory: C:/Users/Sascha/source/repos/esys/project_1_ab5.runs/synth_1
+# Command line: vivado.exe -log endlicherAutomat.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source endlicherAutomat.tcl
+# Log file: C:/Users/Sascha/source/repos/esys/project_1_ab5.runs/synth_1/endlicherAutomat.vds
+# Journal file: C:/Users/Sascha/source/repos/esys/project_1_ab5.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source endlicherAutomat.tcl -notrace

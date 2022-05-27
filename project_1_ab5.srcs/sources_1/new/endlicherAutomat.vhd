@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity endlicherAutomat is
 --  Port ( );
     port(
-    CLK, SD, NOTRESET, ENABLE : in std_logic;
+    CLK, SD, NOTRESET, EN : in std_logic;
     UPnotDOWN : out std_logic
     );
 end endlicherAutomat;
@@ -49,7 +49,7 @@ begin
         if NOTRESET = '0' then
             ZUSTAND <= UP;
         elsif CLK='1' and CLK'event then
-            if ENABLE ='1' then
+            if EN ='1' then
                 ZUSTAND <= FOLGE_Z;
             end if;
         end if;

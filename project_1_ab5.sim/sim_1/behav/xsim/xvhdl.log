@@ -1,4 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Sascha/source/repos/esys/project_1_ab5.srcs/sources_1/new/endlicherAutomat.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'endlicherAutomat'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Sascha/source/repos/esys/project_1_ab5.srcs/sim_1/new/endlicherAutomat_TB.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'endlicherAutomat_TB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Sascha/source/repos/esys/project_1_ab5.srcs/sources_1/new/zaehler_endlicherAutomat.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'zaehler_endlicherAutomat'
